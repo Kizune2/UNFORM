@@ -6,9 +6,9 @@
    ========================================================== */
 
 // ---------- Config (fill these in later) ----------
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxC-dU6g9q3QESC7MRgHp5oLGDz-a76H5juUE_Tyk3lBCb-G861Dgp8xIfFlQBA1Y9aBA/exec
-'; // Google Apps Script Web App URL
-const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQp5GTXbdQl0L4ICTgJzzpSN9huafoBd_pR74uoZfp8TltjuN_XRseSxvgngKLjinalytXJs5CkgWXI/pub?gid=0&single=true&output=csv';                 // Published Google Sheet CSV URL
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxC-dU6g9q3QESC7MRgHp5oLGDz-a76H5juUE_Tyk3lBCb-G861Dgp8xIfFlQBA1Y9aBA/exec'; 
+// Google Apps Script Web App URL
+const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR7I1YG78GYK5XymweSs-fTnvPpgjF1GK7ICmujk3ulBcozUFDOustvcKg3T_qqw2LxeRkY9swPnWhA/pub?gid=0&single=true&output=csv';                 // Published Google Sheet CSV URL
 
 const UNIT_PRICE = 499;
 
