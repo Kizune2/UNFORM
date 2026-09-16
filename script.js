@@ -554,50 +554,32 @@ function buildProductCard(product, linkTarget) {
 
 
     // Send to Google Apps Script
-    fetch(
-      APPS_SCRIPT_URL,
-      {
-        method: 'POST',
-
-        body:
-          JSON.stringify(payload)
-      }
-    )
-
-      .then(function (res) {
-
-        if (!res.ok) {
-
-          throw new Error(
-            'ส่งข้อมูลไม่สำเร็จ'
-          );
-
-        }
-
-
-        // Success
-        window.location.href =
-          'thankyou.html';
-
-      })
-
-      .catch(function (err) {
-
-        console.error(err);
-
-
-        submitBtn.disabled =
-          false;
-
-
-        showMessage(
-          'ไม่สามารถบันทึกรายการได้ กรุณาลองใหม่อีกครั้ง',
-          'error'
-        );
-
-      });
-
+   fetch(
+  APPS_SCRIPT_URL,
+  {
+    method: 'POST',
+    mode: 'no-cors',
+    body: JSON.stringify(payload)
   }
+)
+.then(function () {
+
+  // ส่งข้อมูลแล้ว ให้ไปหน้าขอบคุณ
+  window.location.href = 'thankyou.html';
+
+})
+.catch(function (err) {
+
+  console.error(err);
+
+  submitBtn.disabled = false;
+
+  showMessage(
+    'ไม่สามารถบันทึกรายการได้ กรุณาลองใหม่อีกครั้ง',
+    'error'
+  );
+
+});
 
 
   // Submit button
