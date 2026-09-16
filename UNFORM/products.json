@@ -1,0 +1,42 @@
+[
+  {
+    "id": "base",
+    "name": "UNFORM T-Shirt",
+    "color": "Base",
+    "price": 499,
+    "image": "images/UNFORM base.jpg",
+    "sizes": ["S", "M", "L", "XL"],
+    "fit": "Regular Fit",
+    "material": "Cotton 100%"
+  },
+  {
+    "id": "pink",
+    "name": "UNFORM T-Shirt",
+    "color": "Pink",
+    "price": 499,
+    "image": "images/UNFORM pink.jpg",
+    "sizes": ["S", "M", "L", "XL"],
+    "fit": "Regular Fit",
+    "material": "Cotton 100%"
+  },
+  {
+    "id": "blue",
+    "name": "UNFORM T-Shirt",
+    "color": "Blue",
+    "price": 499,
+    "image": "images/UNFORM blue.jpg",
+    "sizes": ["S", "M", "L", "XL"],
+    "fit": "Regular Fit",
+    "material": "Cotton 100%"
+  },
+  {
+    "id": "green",
+    "name": "UNFORM T-Shirt",
+    "color": "Green",
+    "price": 499,
+    "image": "images/UNFORM green.jpg",
+    "sizes": ["S", "M", "L", "XL"],
+    "fit": "Regular Fit",
+    "material": "Cotton 100%"
+  }
+]
