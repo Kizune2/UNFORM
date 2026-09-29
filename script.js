@@ -853,96 +853,119 @@ function buildProductCard(
 
   function sendOrder(payload) {
 
-    return new Promise(
-      function (resolve, reject) {
+  return new Promise(function(resolve, reject) {
+
+    try {
+
+      /*
+       * ใช้ HTML form ส่งไป Google Apps Script
+       * วิธีนี้ไม่ติดปัญหา CORS
+       */
+
+      const form =
+        document.createElement('form');
+
+      form.method = 'POST';
+
+      form.action =
+        APPS_SCRIPT_URL;
+
+      form.target =
+        'unformOrderFrame';
+
+      form.style.display =
+        'none';
 
 
-        /* ----------------------------------------------------
-           METHOD 1: sendBeacon
-           ---------------------------------------------------- */
+      /*
+       * ส่ง JSON ผ่าน parameter ชื่อ payload
+       */
 
-        try {
+      const input =
+        document.createElement('input');
 
-          const blob =
-            new Blob(
-              [
-                JSON.stringify(
-                  payload
-                )
-              ],
-              {
-                type:
-                  'text/plain;charset=UTF-8'
-              }
-            );
+      input.type =
+        'hidden';
+
+      input.name =
+        'payload';
+
+      input.value =
+        JSON.stringify(payload);
 
 
-          const beaconSent =
-            navigator.sendBeacon(
-              APPS_SCRIPT_URL,
-              blob
-            );
+      form.appendChild(input);
 
 
-          if (beaconSent) {
+      /*
+       * สร้าง iframe ซ่อน
+       */
 
-            resolve(
-              'beacon'
-            );
+      let iframe =
+        document.getElementById(
+          'unformOrderFrame'
+        );
 
-            return;
 
-          }
+      if (!iframe) {
 
-        } catch (error) {
-
-          console.error(
-            'sendBeacon error:',
-            error
+        iframe =
+          document.createElement(
+            'iframe'
           );
 
-        }
+        iframe.id =
+          'unformOrderFrame';
 
+        iframe.name =
+          'unformOrderFrame';
 
-        /* ----------------------------------------------------
-           METHOD 2: fetch fallback
-           ---------------------------------------------------- */
+        iframe.style.display =
+          'none';
 
-        fetch(
-          APPS_SCRIPT_URL,
-          {
-            method: 'POST',
-            mode: 'no-cors',
-            body: JSON.stringify(
-              payload
-            ),
-            keepalive: true
-          }
-        )
-
-        .then(function () {
-
-          resolve(
-            'fetch'
-          );
-
-        })
-
-        .catch(function (error) {
-
-          reject(error);
-
-        });
+        document.body.appendChild(
+          iframe
+        );
 
       }
-    );
-
-  }
 
 
-  /* ==========================================================
-     SUBMIT ORDER
-     ========================================================== */
+      document.body.appendChild(
+        form
+      );
+
+
+      /*
+       * ส่ง
+       */
+
+      form.submit();
+
+
+      /*
+       * ให้เวลาส่งข้อมูล
+       */
+
+      setTimeout(function() {
+
+        form.remove();
+
+        resolve(
+          'form'
+        );
+
+      }, 1500);
+
+
+    } catch (error) {
+
+      reject(error);
+
+    }
+
+  });
+
+}
 
   function submitOrder(event) {
 
