@@ -8,7 +8,7 @@
    ========================================================== */
 
 const APPS_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbzL8vaik9mQTpp-RpkTnVJdnR8q10zSerIDj9Wq_iibdwDgGZVyHK6QH6hSuAmHjfmXRA/exec';
+  'https://script.google.com/macros/s/AKfycbzdley7lBMaQbips09vtSZvI-jeJhpJBeIfdCAlXdxaoWdUB5rfbdWC9WqihXSxCSrREg/exec';
 
 const CSV_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vR7I1YG78GYK5XymweSs-fTnvPpgjF1GK7ICmujk3ulBcozUFDOustvcKg3T_qqw2LxeRkY9swPnWhA/pub?gid=0&single=true&output=csv';
